@@ -27,8 +27,8 @@ spec:
       containers:
       - env:
         - name: USERNAME
-          value: user4
-        image: image-registry.openshift-image-registry.svc:5000/user4-rhods-project/object-detection-rest
+          value: user1
+        image: image-registry.openshift-image-registry.svc:5000/user1-rhods-project/object-detection-rest
         imagePullPolicy: IfNotPresent
         name: object-detection-rest
         ports:

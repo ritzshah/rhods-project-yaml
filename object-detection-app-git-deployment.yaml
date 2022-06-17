@@ -38,8 +38,8 @@ spec:
         - name: OBJECT_DETECTION_URL
           value: http://object-detection-rest:8080/predictions
         - name: USERNAME
-          value: user4
-        image: image-registry.openshift-image-registry.svc:5000/user4-rhods-project/object-detection-app-git
+          value: user1
+        image: image-registry.openshift-image-registry.svc:5000/user1-rhods-project/object-detection-app-git
         imagePullPolicy: Always
         name: object-detection-app-git
         ports:

@@ -1,6 +1,6 @@
 # This repository is to create frontend and backend for AI/ML Object Detection workload in OpenShift cluster
 #!/usr/bin/bash
-export USERNAME=user1
+export USERNAME=user2
 mkdir $HOME/rhods-project
 git clone git@github.com:ritzshah/rhods-project-yaml.git
 sed -i "s/user1/$USERNAME/g" $HOME/rhods-project/object-detection-rest-deployment.yaml
