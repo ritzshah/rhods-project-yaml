@@ -1,0 +1,48 @@
+apiVersion: build.openshift.io/v1
+kind: Build
+metadata:
+  annotations:
+    openshift.io/build-config.name: object-detection-app-git
+  labels:
+    app: object-detection-app-git
+    app.kubernetes.io/component: object-detection-app-git
+    app.kubernetes.io/instance: object-detection-app-git
+    app.kubernetes.io/name: object-detection-app-git
+    app.kubernetes.io/part-of: object-detection
+    app.openshift.io/runtime: nodejs
+    app.openshift.io/runtime-version: 16-ubi8
+    buildconfig: object-detection-app-git
+    openshift.io/build-config.name: object-detection-app-git
+    openshift.io/build.start-policy: Serial
+  name: object-detection-app-git-1
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: object-detection-app-git:latest
+  revision:
+    git:
+      author:
+        email: cchase@redhat.com
+        name: Chris Chase
+      commit: e497b0a9619c2501d8389238c28be66e2f483592
+      committer:
+        email: cchase@redhat.com
+        name: Chris Chase
+      message: Updated to hide video if kafka is not connected.
+    type: Git
+  serviceAccount: builder
+  source:
+    contextDir: /
+    git:
+      uri: https://github.com/rh-aiservices-bu/object-detection-app.git
+    type: Git
+  strategy:
+    sourceStrategy:
+      from:
+        kind: DockerImage
+        name: image-registry.openshift-image-registry.svc:5000/openshift/nodejs
+    type: Source
+  triggeredBy:
+  - message: Manually triggered

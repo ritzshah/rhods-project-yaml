@@ -1,0 +1,48 @@
+apiVersion: build.openshift.io/v1
+kind: Build
+metadata:
+  annotations:
+    openshift.io/build-config.name: object-detection-rest
+    openshift.io/build.number: "1"
+    openshift.io/build.pod-name: object-detection-rest-1-build
+  labels:
+    app: object-detection-rest
+    app.kubernetes.io/component: object-detection-rest
+    app.kubernetes.io/instance: object-detection-rest
+    buildconfig: object-detection-rest
+    openshift.io/build-config.name: object-detection-rest
+    openshift.io/build.start-policy: Serial
+  name: object-detection-rest-1
+  namespace: user3-rhods-project
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: object-detection-rest:latest
+  revision:
+    git:
+      author:
+        email: you@example.com
+        name: Your Name
+      commit: 188c297168417afc3213a5493fceaf968e7afa83
+      committer:
+        email: you@example.com
+        name: Your Name
+      message: Update
+    type: Git
+  serviceAccount: builder
+  source:
+    git:
+      uri: https://github.com/ritzshah/object-detection-rest.git
+    type: Git
+  strategy:
+    sourceStrategy:
+      from:
+        kind: DockerImage
+        name: image-registry.openshift-image-registry.svc:5000/openshift/python@sha256:77f518318ec4b1633c5a0a6701034f339b12f616c53fbb05e32852fb3dbf8f72
+      pullSecret:
+        name: builder-dockercfg-smhnj
+    type: Source
+  triggeredBy:
+  - message: Manually triggered
