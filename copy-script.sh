@@ -4,6 +4,7 @@ export USERNAME=user3
 cd $HOME
 #mkdir $HOME/rhods-project-yaml
 git clone https://github.com/ritzshah/rhods-project-yaml.git
+cd $HOME/rhods-project-yaml
 sed -i "s/user1/$USERNAME/g" $HOME/rhods-project-yaml/object-detection-rest-deployment.yaml
 sed -i "s/user1/$USERNAME/g" $HOME/rhods-project-yaml/object-detection-app-git-deployment.yaml
 for i in `cat list`; do oc apply  -f $i; done
