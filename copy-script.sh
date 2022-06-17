@@ -1,4 +1,5 @@
 # This repository is to create frontend and backend for AI/ML Object Detection workload in OpenShift cluster
+#Once the script is executed you will get the route to frontend, create a QR code of that link here : http://www.barcode-generator.org/
 #!/usr/bin/bash
 USERNAME=`oc whoami`
 oc new-project $USERNAME-rhods-project
