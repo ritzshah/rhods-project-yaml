@@ -5,7 +5,7 @@ mkdir $HOME/rhods-project-yaml
 git clone git@github.com:ritzshah/rhods-project-yaml.git
 sed -i "s/user1/$USERNAME/g" $HOME/rhods-project-yaml/object-detection-rest-deployment.yaml
 sed -i "s/user1/$USERNAME/g" $HOME/rhods-project-yaml/object-detection-app-git-deployment.yaml
-for i in `cat list`; do oc delete  -f $i; done
+for i in `cat list`; do oc apply  -f $i; done
 oc start-build object-detection-rest --wait
 oc start-build object-detection-app-git --wait
 oc rollout restart deployment object-detection-rest
