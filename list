@@ -1,5 +1,3 @@
-
-
 object-detection-app-git-imagestream.yaml
 object-detection-app-git-buildconfig.yaml
 object-detection-app-git-deployment.yaml
@@ -10,3 +8,6 @@ object-detection-rest-buildconfig.yaml
 object-detection-rest-deployment.yaml
 object-detection-rest-route.yaml
 object-detection-rest-service.yaml
+pvc-workspace.yaml
+object-detection-rest-pipeline.yaml
+object-detection-rest-pipeline-run.yaml
